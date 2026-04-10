@@ -6,6 +6,11 @@ jobs:
   mongo-init:
     runs-on: ubuntu-latest
 
+    env:
+      PORT: ${{secrets.PORT }}
+      MONGO_URI: ${{secrets.MONGO_URI }}
+      JWT_SECRET: ${{secrets.JWT_SECRET }}
+
     services:
       mongo:
         image: mongo:latest
@@ -34,6 +39,11 @@ jobs:
         run: |
           npm install
           node seedTasksData.js
+
+
+      - name: Run Tests
+        working-directory: ./backend
+        run: npm test
 
   test:
     runs-on: ubuntu-latest

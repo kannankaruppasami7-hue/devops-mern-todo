@@ -23,8 +23,8 @@ mongoose.connect(process.env.MONGO_URI, {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // })
-.then(() => console.log("MongoDB connected"))
-.catch(err => console.error(err));
+// .then(() => console.log("MongoDB connected"))
+// .catch(err => console.error(err));
 
 const tasksRoute = require('./routes/tasks');
 app.use('/api/tasks', tasksRoute);
